@@ -2,11 +2,27 @@
 
 # Use neovim for vim if present.
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+command -v gls >/dev/null && alias ls="gls -v --color"
+command -v gecho >/dev/null && alias echo="gecho"
 
 # Colorize commands when possible.
 alias \
-	ls="ls -G" \
-	addmark="mark" \
+	addmark="mark"
+
+# shorten git commands
+alias \
+	gi="git init" \
+	ga="git add" \
+	gaa="git add ." \
+	gc="git commit" \
+	gcm="git commit -m" \
+	gp="git push" \
+	gs="git status" \
+	gd="git diff" \
+	gdh="git diff HEAD" \
+	gl="git log" \
+	glg="git log --graph" \
+	glp="git log -p" \
 
 # shorten long commands
 alias \
@@ -16,6 +32,6 @@ alias \
 
 # new commands
 alias \
-	pycalc="python -i -c 'from math import *; import numpy as np'" \
+	pycalc="python -i -c 'from math import *'" \
 	shred="rm -P"
 

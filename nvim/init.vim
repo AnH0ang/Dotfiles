@@ -43,7 +43,7 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 
 	" Snippets
 	Plug 'SirVer/ultisnips'
-	Plug 'AnHoang97/vim-snippets'
+	Plug 'AnH0ang/vim-snippets'
 
 	" session
 	Plug 'xolox/vim-session'
@@ -70,8 +70,6 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 	"chad tree > nerd tree
 	Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 
-	" theme
-	Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 augroup AutoSaveFolds
@@ -84,15 +82,13 @@ augroup END
 " BASIC SETTINGS
 " =====================================================================
 "
-	" set colorscheme to nord
-	colorscheme nord
-
 	set mouse=a
 	set hlsearch
 	set clipboard+=unnamedplus
 	set noswapfile
 	set ic
 	set smartcase
+	set tabstop=4
 
 	" Some basics:
 	nnoremap c "_c
@@ -139,7 +135,7 @@ augroup END
 	endif
 
 	" set python host
-	let g:python3_host_prog = '/Users/Shared/anaconda3/bin/python'
+	let g:python3_host_prog = '~/anaconda3/bin/python'
 
 " =====================================================================
 " Airline SETTINGS
@@ -149,7 +145,7 @@ augroup END
 	let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
 	let g:airline#extensions#tagbar#enabled = 1
 	let g:airline#extensions#ale#enabled = 1
-	let g:airline_powerline_fonts = 1
+	" let g:airline_powerline_fonts = 1 "
 
 " =====================================================================
 " Undotree SETTINGS
@@ -188,6 +184,7 @@ augroup END
 " =====================================================================
 	let g:tex_flavor = 'latex'
 	let g:vimtex_view_method = 'skim'
+	let g:vimtex_quickfix_mode=0
 	let g:vimtex_fold_enabled = 2
 
 	" latex macros
@@ -199,6 +196,14 @@ augroup END
 	autocmd bufenter *.tex nnoremap <c-t> :Tags<cr>
 	autocmd bufenter *.tex nnoremap <c-rightmouse> <c-]>
 	autocmd bufenter *.tex nnoremap <bs> :b main.tex<tab><cr>
+
+" =====================================================================
+" Markdown SETTINGS
+" =====================================================================
+	autocmd bufenter *.md set spell
+	autocmd bufenter *.md set spelllang=de,en_us
+	autocmd bufenter *.md set linebreak
+
 
 " =====================================================================
 " SNIPEPTS SETTINGS
@@ -221,7 +226,7 @@ augroup END
  	vnoremap <localleader>s y:%s/<C-r>0//g<left><left>
 
  	vnoremap <localleader>e :!translate --target_lang EN<cr>
- 	vnoremap <localleader>d :!translate --target_lang DE --formality more<cr>
+ 	vnoremap <localleader>d :!translate --target_lang DE --formality less<cr>
  	vmap <localleader>i <space>egv<space>d
 
  	nnoremap <localleader><localleader> za
