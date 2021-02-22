@@ -27,8 +27,16 @@ brew install wget
 # install fzf
 brew install fzf
 
+# install ag
+brew install the_silver_searcher
+
 # install lf
 brew install lf
+
+# install font
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+
 
 # install anaconda (has to be updated)
 anaconda_url="https://repo.anaconda.com/archive/Anaconda3-2020.11-MacOSX-x86_64.sh"
@@ -75,3 +83,11 @@ defaults write com.apple.dock tilesize -int 55
 
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
+
+
+# Enable Press and Hold for vscode
+# See: https://stackoverflow.com/questions/39972335/how-do-i-press-and-hold-a-key-and-have-it-repeat-in-vscode
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# change device name to homej
+sudo scutil --set HostName home

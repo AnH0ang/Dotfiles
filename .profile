@@ -17,7 +17,7 @@ export INPUTRC="$HOME/.config/inputrc"
 
 # Default programms
 export EDITOR="nvim"
-export FILE="ranger"
+export FILE="lf"
 export GIT_EDITOR="nvim"
 
 # FZF defaults

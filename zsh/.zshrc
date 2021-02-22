@@ -16,13 +16,6 @@ if ! zgen saved; then
 	# fancy prompt
 	zgen load AnH0ang/spaceship-prompt spaceship
 
-	zgen oh-my-zsh
-	zgen oh-my-zsh plugins/docker
-	zgen oh-my-zsh plugins/docker-machine
-	zgen oh-my-zsh plugins/docker-compose
-	zgen oh-my-zsh plugins/aws
-	zgen oh-my-zsh plugins/brew
-
 	# # specify plugins here
 	zgen load urbainvaes/fzf-marks
 	zgen load kutsan/zsh-system-clipboard
@@ -53,7 +46,7 @@ bindkey '^ ' autosuggest-accept
 # load spaceship config
 [ -f  "${HOME}/.config/spaceship/config.sh" ] && source "${HOME}/.config/spaceship/config.sh"
 
-command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
+# command -v direnv &>/dev/null && eval "$(direnv hook zsh)" || echo "direnv not found."
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!

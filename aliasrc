@@ -2,8 +2,6 @@
 
 # Use neovim for vim if present.
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
-command -v gls >/dev/null && alias ls="gls -v --color"
-command -v gecho >/dev/null && alias echo="gecho"
 
 # Colorize commands when possible.
 alias \

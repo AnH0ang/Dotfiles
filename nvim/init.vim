@@ -27,19 +27,12 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 	" multicoursor
 	Plug 'mg979/vim-visual-multi'
 
-	" Tags
-	Plug 'craigemery/vim-autotag'
-	Plug 'majutsushi/tagbar'
-
-	" " FZF
+	" FZF
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 
 	" add indent object (mainly for python)
 	Plug 'michaeljsmith/vim-indent-object'
-
-	" latex
-	Plug 'lervag/vimtex'
 
 	" Snippets
 	Plug 'SirVer/ultisnips'
@@ -55,28 +48,14 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 	" autocomplete
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "deoplete
 	Plug 'deoplete-plugins/deoplete-jedi' "python plugin
-	Plug 'tweekmonster/deoplete-clang2' "c plugin
-	Plug 'ncm2/float-preview.nvim'
 
-	"auto close brackets
+	" auto close brackets
 	Plug 'jiangmiao/auto-pairs'
 
 	" peek into register
 	Plug 'junegunn/vim-peekaboo'
 
-	" undotree
-	Plug 'mbbill/undotree'
-
-	"chad tree > nerd tree
-	Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
-
 call plug#end()
-
-augroup AutoSaveFolds
-  autocmd!
-  autocmd BufWinLeave *.tex mkview
-  autocmd BufWinEnter *.tex silent loadview
-augroup END
 
 " =====================================================================
 " BASIC SETTINGS
@@ -91,7 +70,6 @@ augroup END
 	set tabstop=4
 
 	" Some basics:
-	nnoremap c "_c
 	set nocompatible
 	filetype plugin on
 	syntax enable
@@ -107,13 +85,9 @@ augroup END
 
 	" change match bracket color
 	hi MatchParen cterm=none ctermbg=green ctermfg=black
+
 	" enable indentation
 	set breakindent
-	autocmd FileType tex set linebreak
-	autocmd FileType tex set spell
-	autocmd FileType tex set spelllang=en_us,de_de
-	autocmd FileType tex set spellsuggest=best
-
 
 	"make regex magic
 	nnoremap / /\v\c
@@ -122,6 +96,8 @@ augroup END
 
 	" changes to buffers are always written
 	set autowriteall
+
+	" set cursorline
 	set cursorline
 	hi CursorLine cterm=NONE ctermbg=black 
 
@@ -138,24 +114,18 @@ augroup END
 	let g:python3_host_prog = '~/anaconda3/bin/python'
 
 " =====================================================================
-" Airline SETTINGS
+" AIRLINE SETTINGS
 " =====================================================================
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#tabline#show_buffers = 1
 	let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
 	let g:airline#extensions#tagbar#enabled = 1
 	let g:airline#extensions#ale#enabled = 1
-	" let g:airline_powerline_fonts = 1 "
 
 " =====================================================================
-" Undotree SETTINGS
+" UNDOTREE SETTINGS
 " =====================================================================
 	nnoremap <leader>u :UndotreeToggle<cr>
-
-" =====================================================================
-" chad tree SETTINGS
-" =====================================================================
-	nnoremap <leader>c <cmd>CHADopen<cr>
 
 " =====================================================================
 " ALE SETTINGS
@@ -180,33 +150,7 @@ augroup END
 
 
 " =====================================================================
-" Latex SETTINGS
-" =====================================================================
-	let g:tex_flavor = 'latex'
-	let g:vimtex_view_method = 'skim'
-	let g:vimtex_quickfix_mode=0
-	let g:vimtex_fold_enabled = 2
-
-	" latex macros
-	autocmd bufenter *.tex let @u="%mr%ml`ri \\right`li \\left"
-	autocmd bufenter *.tex let @d="ml%B6x`l5x"
-
-	autocmd bufenter *.tex inoremap <c-space> <c-x><c-o>
-	autocmd bufenter *.tex nnoremap gt yi}:b<space><c-r>0.tex<cr>
-	autocmd bufenter *.tex nnoremap <c-t> :Tags<cr>
-	autocmd bufenter *.tex nnoremap <c-rightmouse> <c-]>
-	autocmd bufenter *.tex nnoremap <bs> :b main.tex<tab><cr>
-
-" =====================================================================
-" Markdown SETTINGS
-" =====================================================================
-	autocmd bufenter *.md set spell
-	autocmd bufenter *.md set spelllang=de,en_us
-	autocmd bufenter *.md set linebreak
-
-
-" =====================================================================
-" SNIPEPTS SETTINGS
+" SNIPPETS SETTINGS
 " =====================================================================
 	let g:UltiSnipsExpandTrigger = '<tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -230,13 +174,7 @@ augroup END
  	vmap <localleader>i <space>egv<space>d
 
  	nnoremap <localleader><localleader> za
-	nnoremap <right> :cnext<cr>
-	nnoremap <left> :cprevious<cr>
 	autocmd bufenter *.c,*.h nnoremap <cr> :make<cr>
-	
-	"sudo write
-	cmap w!! w !sudo tee > /dev/null %
-
 
 " =====================================================================
 " Deoplete SETTINGS
