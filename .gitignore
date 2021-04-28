@@ -2,6 +2,8 @@ oh-my-zsh
 
 zsh
 !zsh/.zshrc
+gtk-2.0
+rstudio
 
 nvim
 !nvim/init.vim

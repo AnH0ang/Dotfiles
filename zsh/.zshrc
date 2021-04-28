@@ -16,6 +16,15 @@ if ! zgen saved; then
 	# fancy prompt
 	zgen load AnH0ang/spaceship-prompt spaceship
 
+	zgen oh-my-zsh
+	zgen oh-my-zsh plugins/docker
+	zgen oh-my-zsh plugins/docker-compose
+	zgen oh-my-zsh plugins/aws
+	zgen oh-my-zsh plugins/ssh-agent
+	zgen oh-my-zsh plugins/brew
+	zgen oh-my-zsh plugins/sudo
+	zgen oh-my-zsh plugins/git
+
 	# # specify plugins here
 	zgen load urbainvaes/fzf-marks
 	zgen load kutsan/zsh-system-clipboard
@@ -24,6 +33,7 @@ if ! zgen saved; then
 	zgen load zsh-users/zsh-syntax-highlighting
 	zgen load zsh-users/zsh-autosuggestions
 	zgen load esc/conda-zsh-completion
+	zgen load darvid/zsh-poetry
 
 	# # generate the init script from plugins above
 	zgen save
@@ -34,6 +44,10 @@ bindkey '^g' fzm
 bindkey '^e' edit-command-line
 bindkey -s '^l' 'lfcd\n'
 bindkey '^ ' autosuggest-accept
+
+# azure completion
+autoload -U +X bashcompinit && bashcompinit
+source /usr/local/etc/bash_completion.d/az
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
@@ -46,19 +60,16 @@ bindkey '^ ' autosuggest-accept
 # load spaceship config
 [ -f  "${HOME}/.config/spaceship/config.sh" ] && source "${HOME}/.config/spaceship/config.sh"
 
-# command -v direnv &>/dev/null && eval "$(direnv hook zsh)" || echo "direnv not found."
+# poetry zsh completion (check oh-my-zsh plugin in a few months)
+mkdir -p $ZDOTDIR/plugins
+fpath+=$ZDOTDIR/plugins
+type poetry &> /dev/null && ! [ -f $ZDOTDIR/plugins/_poetry ] && ( poetry completions zsh > $ZDOTDIR/plugins/_poetry )
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/anhoang/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/anhoang/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/anhoang/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/anhoang/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
+# add direnv hook
+command -v direnv &>/dev/null && eval "$(direnv hook zsh)" || echo "direnv not found."
+
+# Enable Makefile target completion
+zstyle ':completion:*:make:*:targets' call-command true
+
+# Load pyenv
+eval "$(pyenv init -)"

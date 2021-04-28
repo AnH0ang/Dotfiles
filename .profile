@@ -24,5 +24,9 @@ export GIT_EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_DEFAULT_COMMAND='ag -f --hidden --ignore .git -g ""'
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # When havin $PATH problems goto: https://pgib.me//blog/2013/10/11/macosx-tmux-zsh-rbenv/
-export PATH=$HOME/anaconda3/bin:$PATH
+# export PATH=$HOME/anaconda3/bin:$PATH

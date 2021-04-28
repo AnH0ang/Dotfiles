@@ -5,7 +5,14 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # Colorize commands when possible.
 alias \
-	addmark="mark"
+		ls="ls -G"
+
+alias \
+	addmark="mark" 
+
+# hack for sudoedit
+alias \
+	sudoedit="sudo -e"
 
 # shorten git commands
 alias \
@@ -31,5 +38,6 @@ alias \
 # new commands
 alias \
 	pycalc="python -i -c 'from math import *'" \
-	shred="rm -P"
+	shred="rm -P" \
+	view="nvim -R"
 

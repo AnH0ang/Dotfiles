@@ -63,11 +63,12 @@ call plug#end()
 "
 	set mouse=a
 	set hlsearch
-	set clipboard+=unnamedplus
+	set clipboard+=unnamed
 	set noswapfile
 	set ic
 	set smartcase
 	set tabstop=4
+	set shiftwidth=4
 
 	" Some basics:
 	set nocompatible
@@ -111,7 +112,7 @@ call plug#end()
 	endif
 
 	" set python host
-	let g:python3_host_prog = '~/anaconda3/bin/python'
+	let g:python3_host_prog = '~/.pyenv/versions/3.8.9/bin/python'
 
 " =====================================================================
 " AIRLINE SETTINGS
@@ -170,7 +171,7 @@ call plug#end()
  	vnoremap <localleader>s y:%s/<C-r>0//g<left><left>
 
  	vnoremap <localleader>e :!translate --target_lang EN<cr>
- 	vnoremap <localleader>d :!translate --target_lang DE --formality less<cr>
+ 	vnoremap <localleader>d :!translate --target_lang DE --formality more<cr>
  	vmap <localleader>i <space>egv<space>d
 
  	nnoremap <localleader><localleader> za

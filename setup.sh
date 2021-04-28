@@ -56,6 +56,9 @@ pip install neovim-remote
 #install vs-code
 brew install --cask visual-studio-code
 
+#install rstudio
+brew install --cask rstudio
+
 # install iterm
 brew install --cask iterm2
 

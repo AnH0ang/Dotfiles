@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = An Hoang
-	email = anhoang31415@gmail.com
+	email = an.hoang@statworx.com
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3

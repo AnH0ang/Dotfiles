@@ -17,11 +17,14 @@ map c
 map cc cd ~/.config
 map cd push :cd<space>
 map cf fzf
+map cg fcd
 map ci cd ~/iCloud
 map co cd ~/Documents
 map cp cd ~/Projects
 map cs cd ~/iCloud/School
 map cw cd ~/Downloads
+
+map <c-g> fcd
 
 map o %open $f 
 
@@ -113,13 +116,6 @@ cmd soft_link ${{
 	ln -s $(realpath $fx) "$( pwd )"
 }}
 
-cmd test ${{
-	echo $f >> test.test
-	echo $fs >> test.test
-	echo $fx >> test.test
-	echo $id >> test.test
-}}
-
 cmd fzf ${{
   res="$(find ${1:-.} 2> /dev/null | fzf --reverse --header='Jump to location')"
   if [ -f "$res" ]; then
@@ -128,4 +124,9 @@ cmd fzf ${{
     cmd="cd"
   fi
   lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd fcd ${{
+  res="$(cat ~/.fzf-marks | fzf | awk '{print $NF;}')"
+  lf -remote "send $id cd \"$res\""
 }}
