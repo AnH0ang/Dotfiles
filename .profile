@@ -15,6 +15,7 @@ export ZPLUG_HOME="$HOME/.config/zplug"
 export ZGEN_DIR="$HOME/.config/zgen/plugins"
 export INPUTRC="$HOME/.config/inputrc"
 
+
 # Default programms
 export EDITOR="nvim"
 export FILE="lf"
@@ -27,6 +28,8 @@ export FZF_DEFAULT_COMMAND='ag -f --hidden --ignore .git -g ""'
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+export CDPATH="$CDPATH:$(eval echo ~$USER)"
 
 # When havin $PATH problems goto: https://pgib.me//blog/2013/10/11/macosx-tmux-zsh-rbenv/
 # export PATH=$HOME/anaconda3/bin:$PATH

@@ -25,7 +25,7 @@ if ! zgen saved; then
 	zgen oh-my-zsh plugins/sudo
 	zgen oh-my-zsh plugins/git
 
-	# # specify plugins here
+	# specify plugins here
 	zgen load urbainvaes/fzf-marks
 	zgen load kutsan/zsh-system-clipboard
 	zgen load AnH0ang/zsh-vim-mode
@@ -33,9 +33,8 @@ if ! zgen saved; then
 	zgen load zsh-users/zsh-syntax-highlighting
 	zgen load zsh-users/zsh-autosuggestions
 	zgen load esc/conda-zsh-completion
-	zgen load darvid/zsh-poetry
 
-	# # generate the init script from plugins above
+	# generate the init script from plugins above
 	zgen save
 fi
 
@@ -71,5 +70,7 @@ command -v direnv &>/dev/null && eval "$(direnv hook zsh)" || echo "direnv not f
 # Enable Makefile target completion
 zstyle ':completion:*:make:*:targets' call-command true
 
-# Load pyenv
+# Load pyenv and add link the global environment
 eval "$(pyenv init -)"
+rm -f "$PYENV_ROOT/global"
+ln -s "$PYENV_ROOT/versions/$(pyenv global)" "$PYENV_ROOT/global"
