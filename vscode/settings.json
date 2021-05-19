@@ -144,7 +144,7 @@
         {
             "before": [
                 "g",
-                "x"
+                "x",
             ],
             "commands": [
                 "git.openChange",
@@ -184,6 +184,33 @@
         },
         {
             "before": [
+                "g",
+                "r",
+            ],
+            "commands": [
+                "git.revertSelectedRanges",
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "s",
+            ],
+            "commands": [
+                "git.stageSelectedRanges",
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "u",
+            ],
+            "commands": [
+                "git.unstageSelectedRanges",
+            ]
+        },
+        {
+            "before": [
                 "<c-i>"
             ],
             "commands": [
@@ -202,7 +229,27 @@
     ],
     "workbench.startupEditor": "newUntitledFile",
     "jupyter.alwaysTrustNotebooks": true,
-    "workbench.colorTheme": "Community Material Theme Lighter",
+    "workbench.colorTheme": "GitHub Light Default",
     "window.zoomLevel": 1,
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.preferredLightColorTheme": "GitHub Light Default",
+    "workbench.preferredHighContrastColorTheme": "GitHub Dark Default",
+    "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+    "vim.statusBarColorControl": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#bef5cb",
+        "statusBar.noFolderBackground": "#bef5cb",
+        "statusBar.debuggingBackground": "#bef5cb"
+    },
+    "vim.statusBarColors.commandlineinprogress": "#fdaeb7",
+    "vim.statusBarColors.insert": "#bef5cb",
+    "vim.statusBarColors.normal": "#c8e1ff",
+    "vim.statusBarColors.replace": "#d1bcf9",
+    "vim.statusBarColors.visual": "#d1bcf9",
+    "vim.statusBarColors.visualblock": "#d1bcf9",
+    "vim.statusBarColors.visualline": "#d1bcf9",
+    "vim.statusBarColors.searchinprogressmode": "#fff5b1",
+    "vim.statusBarColors.surroundinputmode": "#fdaeb7",
+    "vim.statusBarColors.easymotionmode": "#fdaeb7",
+    "vim.statusBarColors.easymotioninputmode": "#fdaeb7"
 }
