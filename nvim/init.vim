@@ -170,7 +170,7 @@ call plug#end()
  	vnoremap <localleader>s y:%s/<C-r>0//g<left><left>
 
  	vnoremap <localleader>e :!translate --target_lang EN<cr>
- 	vnoremap <localleader>d :!translate --target_lang DE --formality less<cr>
+ 	vnoremap <localleader>d :!translate --target_lang DE --formality more<cr>
  	vmap <localleader>i <space>egv<space>d
 
  	nnoremap <localleader><localleader> za

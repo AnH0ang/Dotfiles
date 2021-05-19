@@ -1,5 +1,16 @@
 # RUN FROM HOME !!!
 
+# overwrite default zprofile for tmux
+test -f /etc/zprofile && (
+cat << EOF > /etc/zprofile
+if [ -x /usr/libexec/path_helper ]; then
+  if [ -z "\$TMUX" ]; then
+    eval `/usr/libexec/path_helper -s`
+  fi
+fi
+EOF
+) || echo "/etc/zprofile does not exists"
+
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
@@ -91,3 +102,11 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # change device name to homej
 sudo scutil --set HostName home
+
+# vim for jupyter notebooks (reference https://github.com/axelfahy/jupyterlab-vim)
+brew install npm
+jupyter labextension install @axlair/jupyterlab_vim
+
+# link iCloud drive to home
+ln -s "$(realpath Library/Mobile\ Documents/com\~apple\~CloudDocs)" iCloud
+
