@@ -1,7 +1,12 @@
 oh-my-zsh
 
+pypoetry/auth.toml
+
+
 zsh
 !zsh/.zshrc
+gtk-2.0
+rstudio
 
 nvim
 !nvim/init.vim

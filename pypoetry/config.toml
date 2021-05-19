@@ -1,0 +1,3 @@
+[repositories]
+pypi = {url = "https://upload.pypi.org/legacy/"}
+testpypi = {url = "https://test.pypi.org/legacy/"}

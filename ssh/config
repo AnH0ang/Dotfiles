@@ -1,0 +1,23 @@
+Host micro
+  HostName ec2-54-93-96-225.eu-central-1.compute.amazonaws.com
+  User ubuntu
+  IdentityFile ~/.ssh/id_rsa_ec2_micro
+
+
+# You have to connect to VPN first
+Host laplace
+  HostName laplace.statworx.net
+  User statworx
+  IdentityFile ~/.ssh/id_rsa
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+  IdentitiesOnly yes
+
+Host github.personal
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_personal
+  IdentitiesOnly yes
