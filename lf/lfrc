@@ -39,6 +39,7 @@ map yf %basename $f | pbcopy
 map yg push :glob-select<space>
 map yn %echo $f | pbcopy
 map yp %dirname $f | pbcopy
+map yc %cat $f | pbcopy
 map yy :copy
 
 # custom commands
@@ -47,6 +48,10 @@ cmd mkdir %mkdir "$(echo $* | tr ' ' '\ ')"
 cmd open_with $$* $f
 cmd open_all $open $fx
 cmd visual %$VISUAL .
+
+cmd code ${{
+	dirname $f | xargs $VISUAL
+}}
 
 cmd mkfile ${{
 	$EDITOR $1

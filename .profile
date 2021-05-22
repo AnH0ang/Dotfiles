@@ -18,6 +18,7 @@ export INPUTRC="$HOME/.config/inputrc"
 
 # Default programms
 export EDITOR="nvim"
+export VISUAL="code"
 export FILE="lf"
 export GIT_EDITOR="nvim"
 

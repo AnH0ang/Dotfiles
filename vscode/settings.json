@@ -1,6 +1,7 @@
 {
     "autoDocstring.customTemplatePath": "/Users/anhoang/.vscode/docstring.template",
     "autoDocstring.docstringFormat": "google",
+    "workbench.iconTheme": "material-icon-theme",
     "debug.onTaskErrors": "showErrors",
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
@@ -49,7 +50,6 @@
         "--profile=black",
         "--atomic"
     ],
-    "python.sortImports.path": "${workspaceFolder}/.venv/bin/isort",
     "terminal.integrated.inheritEnv": false,
     "terminal.integrated.lineHeight": 1.2,
     "vim.enableNeovim": true,
@@ -188,28 +188,28 @@
         {
             "before": [
                 "g",
-                "r",
+                "r"
             ],
             "commands": [
-                "git.revertSelectedRanges",
+                "git.revertSelectedRanges"
             ]
         },
         {
             "before": [
                 "g",
-                "s",
+                "s"
             ],
             "commands": [
-                "git.stageSelectedRanges",
+                "git.stageSelectedRanges"
             ]
         },
         {
             "before": [
                 "g",
-                "u",
+                "u"
             ],
             "commands": [
-                "git.unstageSelectedRanges",
+                "git.unstageSelectedRanges"
             ]
         },
         {
@@ -348,60 +348,6 @@
             "name": "Search in project",
             "type": "command",
             "command": "workbench.action.findInFiles"
-        },
-        {
-            "key": "0",
-            "name": "Focus on files explorer",
-            "type": "command",
-            "command": "workbench.files.action.focusFilesExplorer"
-        },
-        {
-            "key": "1",
-            "name": "Focus 1st window",
-            "type": "command",
-            "command": "workbench.action.focusFirstEditorGroup"
-        },
-        {
-            "key": "2",
-            "name": "Focus 2nd window",
-            "type": "command",
-            "command": "workbench.action.focusSecondEditorGroup"
-        },
-        {
-            "key": "3",
-            "name": "Focus 3rd window",
-            "type": "command",
-            "command": "workbench.action.focusThirdEditorGroup"
-        },
-        {
-            "key": "4",
-            "name": "Focus 4th window",
-            "type": "command",
-            "command": "workbench.action.focusFourthEditorGroup"
-        },
-        {
-            "key": "5",
-            "name": "Focus 5th window",
-            "type": "command",
-            "command": "workbench.action.focusFifthEditorGroup"
-        },
-        {
-            "key": "6",
-            "name": "Focus 6th window",
-            "type": "command",
-            "command": "workbench.action.focusSixthEditorGroup"
-        },
-        {
-            "key": "7",
-            "name": "Focus 7th window",
-            "type": "command",
-            "command": "workbench.action.focusSeventhEditorGroup"
-        },
-        {
-            "key": "8",
-            "name": "Focus 8th window",
-            "type": "command",
-            "command": "workbench.action.focusEighthEditorGroup"
         },
         {
             "key": ";",
@@ -3714,6 +3660,18 @@
                                     "name": "Sort imports",
                                     "type": "command",
                                     "command": "python.sortImports"
+                                },
+                                {
+                                    "key": "m",
+                                    "name": "Extract Method",
+                                    "type": "command",
+                                    "command": "python.refactorExtractMethod"
+                                },
+                                {
+                                    "key": "v",
+                                    "name": "Extract Variable",
+                                    "type": "command",
+                                    "command": "python.refactorExtractVariable"
                                 }
                             ]
                         },
@@ -4955,7 +4913,7 @@
                     "key": "k",
                     "name": "Show Docker",
                     "type": "command",
-                    "command": "dockerContainers.focus"
+                    "command": "workbench.view.extension.dockerView"
                 },
                 {
                     "key": "a",
@@ -5033,6 +4991,6 @@
             ]
         }
     ],
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.activityBar.visible": false,
     "window.zoomLevel": 1
 }
