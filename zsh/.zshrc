@@ -45,7 +45,7 @@ bindkey '^ ' autosuggest-accept
 
 # azure completion
 autoload -U +X bashcompinit && bashcompinit
-source /usr/local/etc/bash_completion.d/az
+[ -f "/usr/local/etc/bash_completion.d/az" ] && source /usr/local/etc/bash_completion.d/az
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
