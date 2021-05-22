@@ -22,7 +22,6 @@ if ! zgen saved; then
 	zgen oh-my-zsh plugins/aws
 	zgen oh-my-zsh plugins/ssh-agent
 	zgen oh-my-zsh plugins/brew
-	zgen oh-my-zsh plugins/sudo
 	zgen oh-my-zsh plugins/git
 
 	# specify plugins here
