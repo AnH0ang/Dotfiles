@@ -8,9 +8,6 @@ zsh
 gtk-2.0
 rstudio
 
-nvim
-!nvim/init.vim
-
 zgen
 
 tmux/plugins
