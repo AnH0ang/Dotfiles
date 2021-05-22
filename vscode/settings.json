@@ -84,14 +84,17 @@
                 "+",
                 "\\",
                 "(",
-                ".",
+                "[",
+                "^",
+                ")",
+                "]",
                 "*",
                 "\\",
                 ")",
                 ".",
                 "*",
                 ":",
-                "<cr>",
+                "cr"
             ],
             "before": [
                 "g",
@@ -115,7 +118,7 @@
                 "w",
                 "]",
                 "+",
-                "<cr>",
+                "<cr>"
             ],
             "before": [
                 "g",
@@ -138,16 +141,16 @@
             ],
             "commands": [
                 "editor.action.dirtydiff.next",
-                "workbench.action.compareEditor.nextChange",
+                "workbench.action.compareEditor.nextChange"
             ]
         },
         {
             "before": [
                 "g",
-                "x",
+                "x"
             ],
             "commands": [
-                "git.openChange",
+                "git.openChange"
             ]
         },
         {
@@ -157,7 +160,7 @@
             ],
             "commands": [
                 "editor.action.dirtydiff.previous",
-                "workbench.action.compareEditor.previousChange",
+                "workbench.action.compareEditor.previousChange"
             ]
         },
         {
@@ -220,7 +223,6 @@
     ],
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.autoDetectColorScheme": true,
-    "workbench.editor.showTabs": true,
     "workbench.editorAssociations": [
         {
             "filenamePattern": "*.ipynb",
@@ -234,7 +236,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "workbench.preferredLightColorTheme": "GitHub Light Default",
     "workbench.preferredHighContrastColorTheme": "GitHub Dark Default",
-    "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+    "workbench.preferredDarkColorTheme": "GitHub Light Default",
     "vim.statusBarColorControl": true,
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#fffbdd",
@@ -694,6 +696,12 @@
                     "name": "Pause debug",
                     "type": "command",
                     "command": "workbench.action.debug.pause"
+                },
+                {
+                    "key": "r",
+                    "name": "Run without debugging",
+                    "type": "command",
+                    "command": "workbench.action.debug.run"
                 },
                 {
                     "key": "s",
@@ -1177,65 +1185,158 @@
             "type": "bindings",
             "bindings": [
                 {
-                    "key": "b",
-                    "name": "Blame file",
+                    "key": "/",
+                    "name": "Search Commits",
+                    "command": "gitlens.showCommitSearch",
                     "type": "command",
-                    "command": "magit.blame-file"
+                    "when": "gitlens:enabled && config.gitlens.keymap == 'alternate'"
+                },
+                {
+                    "key": "a",
+                    "name": "Stage",
+                    "type": "command",
+                    "command": "git.stage"
+                },
+                {
+                    "key": "b",
+                    "name": "Checkout",
+                    "type": "command",
+                    "command": "git.checkout"
+                },
+                {
+                    "key": "B",
+                    "name": "Browse",
+                    "type": "command",
+                    "command": "gitlens.openFileInRemote"
                 },
                 {
                     "key": "c",
-                    "name": "Clone",
+                    "name": "Commit",
                     "type": "command",
-                    "command": "git.clone"
+                    "command": "git.commit"
+                },
+                {
+                    "key": "C",
+                    "name": "Cherry Pick",
+                    "type": "command",
+                    "command": "gitlens.views.cherryPick"
+                },
+                {
+                    "key": "d",
+                    "name": "Delete Branch",
+                    "type": "command",
+                    "command": "git.deleteBranch"
+                },
+                {
+                    "key": "f",
+                    "name": "Fetch",
+                    "type": "command",
+                    "command": "git.fetch"
+                },
+                {
+                    "key": "F",
+                    "name": "Pull From",
+                    "type": "command",
+                    "command": "git.pullFrom"
+                },
+                {
+                    "key": "g",
+                    "name": "Graph",
+                    "type": "command",
+                    "command": "git-graph.view"
+                },
+                {
+                    "key": "h",
+                    "name": "Heatmap",
+                    "type": "command",
+                    "command": "gitlens.toggleFileHeatmap"
+                },
+                {
+                    "key": "H",
+                    "name": "History",
+                    "type": "command",
+                    "command": "git.viewFileHistory"
                 },
                 {
                     "key": "i",
-                    "name": "Initialize repository",
+                    "name": "Init",
                     "type": "command",
                     "command": "git.init"
                 },
                 {
-                    "key": "m",
-                    "name": "Magit dispatch",
+                    "key": "j",
+                    "name": "Next Change",
                     "type": "command",
-                    "command": "magit.dispatch"
+                    "command": "workbench.action.editor.nextChange"
+                },
+                {
+                    "key": "k",
+                    "name": "Previous Change",
+                    "type": "command",
+                    "command": "workbench.action.editor.previousChange"
+                },
+                {
+                    "key": "l",
+                    "name": "Toggle Line Blame",
+                    "type": "command",
+                    "command": "gitlens.toggleLineBlame",
+                    "when": "editorTextFocus && gitlens:canToggleCodeLens && gitlens:enabled && config.gitlens.keymap == 'alternate'"
+                },
+                {
+                    "key": "L",
+                    "name": "Toggle GitLens",
+                    "type": "command",
+                    "command": "gitlens.toggleCodeLens",
+                    "when": "editorTextFocus && gitlens:canToggleCodeLens && gitlens:enabled && config.gitlens.keymap == 'alternate'"
+                },
+                {
+                    "key": "m",
+                    "name": "Merge",
+                    "type": "command",
+                    "command": "git.merge"
+                },
+                {
+                    "key": "p",
+                    "name": "Push",
+                    "type": "command",
+                    "command": "git.push"
+                },
+                {
+                    "key": "P",
+                    "name": "Push",
+                    "type": "command",
+                    "command": "git.pull"
                 },
                 {
                     "key": "s",
-                    "name": "Status",
+                    "name": "Stash",
                     "type": "command",
-                    "command": "magit.status"
+                    "command": "workbench.view.scm"
                 },
                 {
                     "key": "S",
-                    "name": "Stage file",
+                    "name": "Status",
                     "type": "command",
-                    "command": "magit.stage-file"
+                    "command": "gitlens.showQuickRepoStatus",
+                    "when": "gitlens:enabled && config.gitlens.keymap == 'alternate'"
+                },
+                {
+                    "key": "t",
+                    "name": "Create Tag",
+                    "type": "command",
+                    "command": "git.createTag"
+                },
+                {
+                    "key": "T",
+                    "name": "Delete Tag",
+                    "type": "command",
+                    "command": "git.deleteTag"
                 },
                 {
                     "key": "U",
-                    "name": "Unstage file",
+                    "name": "Unstage",
                     "type": "command",
-                    "command": "magit.unstage-file"
-                },
-                {
-                    "key": "f",
-                    "name": "+File",
-                    "type": "bindings",
-                    "bindings": [
-                        {
-                            "key": "d",
-                            "name": "Diff",
-                            "type": "command",
-                            "command": "magit.diff-file"
-                        },
-                        {
-                            "key": "l",
-                            "name": "Show log/timeline",
-                            "type": "command",
-                            "command": "timeline.focus"
-                        }
-                    ]
+                    "command": "git.unstage"
                 }
             ]
         },
@@ -4770,7 +4871,7 @@
                     "key": "e",
                     "name": "Extension View",
                     "type": "command",
-                    "command": "workbench.views.extensions.installed.focus"
+                    "command": "workbench.views.extensions.searchInstalled.focus"
                 },
                 {
                     "key": "k",
@@ -4783,7 +4884,7 @@
                     "name": "Azure View",
                     "type": "command",
                     "command": "azureDatabasesExplorer.focus"
-                },
+                }
             ]
         },
         {
@@ -4850,6 +4951,18 @@
                     "name": "Show extensions",
                     "type": "command",
                     "command": "workbench.view.extensions"
+                },
+                {
+                    "key": "k",
+                    "name": "Show Docker",
+                    "type": "command",
+                    "command": "dockerContainers.focus"
+                },
+                {
+                    "key": "a",
+                    "name": "Show Azure",
+                    "type": "command",
+                    "command": "azureDatabasesExplorer.focus"
                 }
             ]
         },
@@ -4922,4 +5035,5 @@
         }
     ],
     "workbench.activityBar.visible": false,
+    "workbench.iconTheme": "material-icon-theme"
 }
