@@ -1,7 +1,6 @@
 {
     "autoDocstring.customTemplatePath": "/Users/anhoang/.vscode/docstring.template",
     "autoDocstring.docstringFormat": "google",
-    "workbench.iconTheme": "material-icon-theme",
     "debug.onTaskErrors": "showErrors",
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
@@ -132,6 +131,24 @@
             ],
             "commands": [
                 "editor.action.goToReferences"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "P"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "N"
+            ],
+            "commands": [
+                "editor.action.marker.next"
             ]
         },
         {
@@ -4185,6 +4202,12 @@
                     "name": "Toggle render whitespace",
                     "type": "command",
                     "command": "editor.action.toggleRenderWhitespace"
+                },
+                {
+                    "key": "e",
+                    "name": "Error Lense",
+                    "type": "command",
+                    "command": "errorLens.toggle"
                 }
             ]
         },
@@ -4850,6 +4873,12 @@
             "type": "bindings",
             "bindings": [
                 {
+                    "key": "b",
+                    "name": "Show Bread Crumbs",
+                    "type": "command",
+                    "command": "breadcrumbs.focusAndSelect"
+                },
+                {
                     "key": "d",
                     "name": "Show debug console",
                     "type": "command",
@@ -4935,6 +4964,12 @@
                     "command": "workbench.action.toggleSidebarVisibility"
                 },
                 {
+                    "key": "B",
+                    "name": "Toggle Breadcrumbs",
+                    "type": "command",
+                    "command": "breadcrumbs.toggle"
+                },
+                {
                     "key": "c",
                     "name": "Toggle centered layout",
                     "type": "command",
@@ -4991,6 +5026,16 @@
             ]
         }
     ],
+    "window.zoomLevel": 1,
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.ipynb_checkpoints": true,
+        "**/.mypy_cache": true,
+        "**/.pytest_cache": true,
+        "**/.venv": true,
+        "**/.vscode": true,
+        "**/dist": true
+    },
     "workbench.activityBar.visible": false,
-    "window.zoomLevel": 1
+    "breadcrumbs.enabled": false
 }
