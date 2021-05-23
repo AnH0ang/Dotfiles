@@ -16,7 +16,6 @@
         100
     ],
     "editor.suggestSelection": "first",
-    "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "git.autofetch": true,
     "pylance.insidersChannel": "daily",
@@ -5037,5 +5036,8 @@
         "**/dist": true
     },
     "workbench.activityBar.visible": false,
+    "debug.toolBarLocation": "docked",
+    "explorer.confirmDelete": false,
+    "explorer.incrementalNaming": "smart",
     "breadcrumbs.enabled": false
 }

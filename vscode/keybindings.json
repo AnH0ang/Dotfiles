@@ -1,5 +1,10 @@
 [
   {
+    "key": "ctrl+j",
+    "command": "problems.action.focusProblemsFromFilter",
+    "when": "problemsFilterFocus"
+  },
+  {
     "key": "space",
     "command": "vspacecode.space",
     "when": "activeEditorGroupEmpty && focusedView == '' && !whichkeyActive && !inputFocus"
@@ -140,7 +145,12 @@
   {
     "key": "ctrl+k",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
+    "when": "terminalFocus || problemFocus || problemsFilterFocus || focusedView == 'workbench.panel.markers.view'"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "inDebugRepl && textInputFocus"
   },
   {
     "key": "ctrl+j",
@@ -192,13 +202,13 @@
     "command": "jupyter.runFileInteractive"
   },
   {
-    "key": "shift+h",
-    "command": "breadcrumbs.focusPrevious",
+    "key": "alt+left",
+    "command": "-breadcrumbs.focusPrevious",
     "when": "breadcrumbsActive && breadcrumbsVisible"
   },
   {
-    "key": "alt+left",
-    "command": "-breadcrumbs.focusPrevious",
+    "key": "alt+right",
+    "command": "-breadcrumbs.focusNext",
     "when": "breadcrumbsActive && breadcrumbsVisible"
   },
   {
@@ -207,8 +217,28 @@
     "when": "breadcrumbsActive && breadcrumbsVisible"
   },
   {
-    "key": "alt+right",
+    "key": "right",
     "command": "-breadcrumbs.focusNext",
     "when": "breadcrumbsActive && breadcrumbsVisible"
   },
+  {
+    "key": "shift+h",
+    "command": "breadcrumbs.focusPrevious",
+    "when": "breadcrumbsActive && breadcrumbsVisible"
+  },
+  {
+    "key": "left",
+    "command": "-breadcrumbs.focusPrevious",
+    "when": "breadcrumbsActive && breadcrumbsVisible"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "search.focus.nextInputBox",
+    "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.findInFiles",
+    "when": "fileMatchOrMatchFocus && searchViewletVisible"
+  }
 ]
